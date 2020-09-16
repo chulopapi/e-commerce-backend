@@ -16,12 +16,12 @@ router.get('/', (req, res) => {
       },
     ],
   })
-   //return database in json
-   .then(dbPostData => res.json(dbPostData))
-   .catch(err => {
-     console.log(err);
-     res.status(500).json(err);
-   });
+    //return database in json
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // get one product
@@ -122,7 +122,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   await ProductTag.destroy({
     where: {
